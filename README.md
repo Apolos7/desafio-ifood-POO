@@ -58,4 +58,4 @@ Uma instância de uma classe é um novo objeto criado dessa classe, com o operad
 </p>
 
 ------------
-<a href="https://www.linkedin.com/in/alessandrossantana/"><img src="https://img.icons8.com/nolan/64/linkedin-circled.png" style="max-width:20px; max-height:20px;"/>Linkedin</a>
+<a href="https://www.linkedin.com/in/alessandrossantana/"><img src="https://img.icons8.com/nolan/64/linkedin-circled.png" style="max-width:20px; max-height:20px;"/></a>
