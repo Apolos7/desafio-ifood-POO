@@ -2,7 +2,6 @@ package br.edu.ifs.desafio.domain;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.Set;
 
 import br.edu.ifs.desafio.util.DateFormatters;
@@ -14,7 +13,13 @@ public class Bootcamp {
     private final LocalDate dataInicial = LocalDate.now();
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
-    private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    private Set<Conteudo> conteudos;
+
+    public Bootcamp(String nome, String descricao, Set<Conteudo> conteudos) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.conteudos = conteudos;
+    }
 
     public String getNome() {
         return nome;
