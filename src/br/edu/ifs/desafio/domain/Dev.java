@@ -1,6 +1,7 @@
 package br.edu.ifs.desafio.domain;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class Dev {
@@ -84,12 +85,26 @@ public class Dev {
         return true;
     }
 
-    public void inscreverBootcamp(Bootcamp bootcamp){}
+    public void inscreverBootcamp(Bootcamp bootcamp) {
+        this.conteudosInscritos.addAll(bootcamp.getConteudos());
+        bootcamp.getDevsInscritos().add(this);
+    }
 
-    public void progedir() {}
+    public void progedir() {
+        Optional<Conteudo> primeiroConteudo = this.conteudosInscritos.stream().findFirst();
 
-    public void calcularXp() {}
+        primeiroConteudo.ifPresentOrElse(conteudo -> {
+            this.conteudosConcluidos.add(conteudo);
+            this.conteudosInscritos.remove(conteudo);
+        }, () -> System.err.println("Você não está matrículado em nenhum conteúdo!"));
 
-    
+    }
+
+    public double calcularXp() {
+        return this.conteudosConcluidos
+                .stream()
+                .mapToDouble(conteudo -> conteudo.calcularXp())
+                .sum();
+    }
 
 }
